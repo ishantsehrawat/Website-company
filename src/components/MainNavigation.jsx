@@ -1,5 +1,7 @@
-import React from 'react';
-import {Toolbar, AppBar, Typography, makeStyles} from '@material-ui/core';
+ 
+// npm install @material-ui/core
+import React from "react";
+import { AppBar, Toolbar, Typography, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,28 +17,48 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "center",
-    width: theme.spacing(48),
+    width: theme.spacing(54),
+    height: theme.spacing(4),
   },
-}))
+  link: {
+    cursor: "pointer",
+    "&:active": {
+      backgroundColor: theme.palette.secondary.main,
+      color: "white",
+      cursor: "pointer",
+      padding: theme.spacing(1),
+      paddingLeft: 15,
+      paddingRight: 15,
+      borderRadius: 20,
+    },
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.main,
+      color: "white",
+      cursor: "pointer",
+      padding: theme.spacing(1),
+      paddingLeft: 15,
+      paddingRight: 15,
+      borderRadius: 20,
+    },
+  },
+}));
 
-function MainNavigation() {
-    const classes = useStyles();
+const MainNavigation = () => {
+  const classes = useStyles();
+  return (
+    <AppBar position="static">
+      <Toolbar className={classes.root}>
+        <div className={classes.logo}>
+          <Typography>Website Company</Typography>
+        </div>
+        <div className={classes.links}>
+          <Typography className={classes.link}>Home</Typography>
+          <Typography className={classes.link}>Courses</Typography>
+          <Typography className={classes.link}>Connect</Typography>
+        </div>
+      </Toolbar>
+    </AppBar>
+  );
+};
 
-
-    return (
-      <AppBar postion='static'>
-        <Toolbar className={classes.root}>
-          <div className={classes.logo}>
-            <Typography>Website Company</Typography>
-          </div>
-          <div className={classes.links}>
-            <Typography>Home</Typography>
-            <Typography>Courses</Typography>
-            <Typography>Connect</Typography>
-          </div>
-        </Toolbar>
-      </AppBar>
-    );
-}
-
-export default MainNavigation
+export default MainNavigation;

@@ -1,13 +1,43 @@
 import './App.css';
 import MainNavigation from './components/MainNavigation';
 import Home from './components/Home';
+import { createTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#D9FFFD", //blue
+    },
+    secondary: {
+      main: "#0671B7", //dark blue
+    },
+    accent: {
+      main: "#EE726F", //red
+    },
+  },
+  typography: {
+    fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
+  },
+});
 
 function App() {
   return(
-    <div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <MainNavigation />
       <Home />
-    </div>
+    </ThemeProvider>
   )
 }
 
